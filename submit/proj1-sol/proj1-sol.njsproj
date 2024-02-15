@@ -1,0 +1,100 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>proj1-sol</Name>
+    <RootNamespace>proj1-sol</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>3acf329e-b151-4920-bf2e-ffb8d330482b</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>src\Main.js</StartupFile>
+    <StartWebBrowser>False</StartWebBrowser>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <StartWebBrowser>false</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="do-tests.sh" />
+    <Content Include="elixer-data.ebnf">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="run.sh">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="make.sh">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\Main.js" />
+    <Content Include="src\AstNodes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\Token.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\Parser.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\Lexer.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="package.json" />
+    <Content Include="tests\04-totally-empty.out" />
+    <Content Include="tests\04-totally-empty.test" />
+    <Content Include="tests\05-empty-with-comment.out" />
+    <Content Include="tests\05-empty-with-comment.test" />
+    <Content Include="tests\06-empty-multi-comment.out" />
+    <Content Include="tests\06-empty-multi-comment.test" />
+    <Content Include="tests\10-single-atom.out" />
+    <Content Include="tests\10-single-atom.test" />
+    <Content Include="tests\12-single-int.out" />
+    <Content Include="tests\12-single-int.test" />
+    <Content Include="tests\14-extended-ints.out" />
+    <Content Include="tests\14-extended-ints.test" />
+    <Content Include="tests\16-multi-bool.out" />
+    <Content Include="tests\16-multi-bool.test" />
+    <Content Include="tests\17-true-false.out" />
+    <Content Include="tests\17-true-false.test" />
+    <Content Include="tests\18-multi-primitives.out" />
+    <Content Include="tests\18-multi-primitives.test" />
+    <Content Include="tests\20-empty-lists.out" />
+    <Content Include="tests\20-empty-lists.test" />
+    <Content Include="tests\22-simple-lists.out" />
+    <Content Include="tests\22-simple-lists.test" />
+    <Content Include="tests\30-empty-tuples.out" />
+    <Content Include="tests\30-empty-tuples.test" />
+    <Content Include="tests\32-simple-tuples.out" />
+    <Content Include="tests\32-simple-tuples.test" />
+    <Content Include="tests\40-empty-maps.out" />
+    <Content Include="tests\40-empty-maps.test" />
+    <Content Include="tests\44-simple-maps.out" />
+    <Content Include="tests\44-simple-maps.test" />
+    <Content Include="tests\50-compound-data.out" />
+    <Content Include="tests\50-compound-data.test" />
+    <Content Include="tests\60-miss-delim1.err" />
+    <Content Include="tests\62-miss-delim2.err" />
+    <Content Include="tests\64-truefalse.err" />
+    <Content Include="tests\66-extra-comma.err" />
+    <Content Include="tests\68-extra-close-delim.err" />
+    <Content Include="tests\70-bad-int.err" />
+    <Content Include="tests\LOG.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="tests\" />
+    <Folder Include="src\" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
+</Project>

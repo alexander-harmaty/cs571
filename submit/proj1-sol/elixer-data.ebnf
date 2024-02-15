@@ -1,0 +1,41 @@
+(* A sentence in the language consists of a sequence of zero-or-more data-literal's. *)
+sentence = { data_literal } ;
+
+(* A data-literal is either a list literal, a tuple literal, a map literal, or a primitive literal. *)
+data_literal = list_literal | tuple_literal | map_literal | primitive_literal ;
+
+(* A primitive literal is either an integer, atom or boolean. *)
+primitive_literal = integer | atom | boolean ;
+
+(* A list literal is a sequence of 0-or-more comma-separated data-literal's within square brackets [ and ]. *)
+list_literal = "[", [ data_literal, { ",", data_literal } ], "]" ;
+
+(* A tuple literal is a sequence of 0-or-more comma-separated data-literal's within braces { and }. *)
+tuple_literal = "{", [ data_literal, { ",", data_literal } ], "}" ;
+
+(* A map literal is a sequence of 0-or-more comma-separated key-pair's within a decorated left brace %{ and a regular right brace }. *)
+map_literal = "%{", [ key_pair, { ",", key_pair } ], "}" ;
+
+(* A key-pair is either a sequence consisting of a data-literal, a right-arrow => followed by a data-literal, or a sequence consisting of a key followed by a data-literal. *)
+key_pair = ( key, "=>" , data_literal ) | ( atom , data_literal ) ;
+
+(* An integer consists of a sequence of one-or-more digits, possibly containing internal underscores _. *)
+integer = digit, { digit | "_" } ;
+
+(* An atom consists of a colon :, followed by an alphabetic character or underscore _ followed by a sequence of zero-or-more alphanumeric characters or underscores _. *)
+atom = ":", ( letter | "_" ), { alphanumeric | "_" } ;
+
+(* A key is just like an atom but the : must be at the end instead of the start. *)
+key = ( letter | "_" ), { alphanumeric | "_" }, ":" ;
+
+(* A boolean is one of the words true or false. *)
+boolean = "true" | "false" ;
+
+(* Whitespace and #-to-end-of-line comments should be ignored. *)
+spaces = { " " | "\t" | "\n" | "\r" } ;
+comment = "#", { all characters except "\n" }, "\n" ;
+
+(* Digit, letter, and alphanumeric *)
+digit = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
+letter = "a" | "b" | "c" | ... | "z" | "A" | ... | "Z" ;
+alphanumeric = letter | digit ;
