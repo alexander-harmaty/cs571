@@ -1,5 +1,5 @@
 #!/bin/sh
 
-dir=`dirname $0`
+chmod +x *.sh
 
 echo "No build needed for Node.js project"
