@@ -1,5 +1,11 @@
 #!/bin/sh
 
+#sets dir to directory containing this script
 dir=`dirname $0`
 
-echo "No build needed for Node.js project"
+#use $dir to access programs in this directory
+#so that this script can be run from any directory.
+
+echo "no build done"
+
+
